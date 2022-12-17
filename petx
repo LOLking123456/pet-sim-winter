@@ -1,0 +1,106 @@
+
+
+local Rayfield = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Rayfield/main/source"))()
+
+
+local Window = Rayfield:CreateWindow({
+	Name = "[🎄 EVENT] Pet Simulator X!",
+	LoadingTitle = "[🎄 EVENT] Pet Simulator X!",
+	LoadingSubtitle = "[🎄 EVENT]",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = nil, -- Create a custom folder for your hub/game
+		FileName = "script"
+
+}	})
+local Tab = Window:CreateTab("Main-Features", 4483362458) -- Title, Image
+local Label = Tab:CreateLabel("Main:")
+
+
+Tab:CreateButton({
+	Name = "Infinite Gems",
+	Callback = function()
+	    while true do
+ game:GetService("Players").LocalPlayer.PlayerGui.Main.Right["Diamonds"].Amount.Text = 100000000000000000000000000000
+ 
+wait(0)
+end
+end})
+
+
+
+Tab:CreateButton({
+	Name = "Infinite Coins",
+	Callback = function()
+	    while true do
+ game:GetService("Players").LocalPlayer.PlayerGui.Main.Right["Coins"].Amount.Text = 100000000000000000000000000000
+ 
+wait(0)
+end
+end})
+
+
+Tab:CreateButton({
+	Name = "Infinite Fantasy Coins",
+	Callback = function()
+	    while true do
+ game:GetService("Players").LocalPlayer.PlayerGui.Main.Right["Fantasy Coins"].Amount.Text = 100000000000000000000000000000
+ 
+wait(0)
+end
+end})
+
+
+Tab:CreateButton({
+	Name = "Free Hoverboard",
+	Callback = function()
+
+end})
+
+
+Tab:CreateButton({
+	Name = "Invisible",
+	Callback = function()
+	    local removeNametags = false -- remove custom billboardgui nametags from hrp, could trigger anticheat
+
+local plr = game:GetService("Players").LocalPlayer
+local character = plr.Character
+local hrp = character.HumanoidRootPart
+local old = hrp.CFrame
+
+if not character:FindFirstChild("LowerTorso") or character.PrimaryPart ~= hrp then
+return print("unsupported")
+end
+
+if removeNametags then
+local tag = hrp:FindFirstChildOfClass("BillboardGui")
+if tag then tag:Destroy() end
+
+hrp.ChildAdded:Connect(function(item)
+if item:IsA("BillboardGui") then
+task.wait()
+item:Destroy()
+end
+end)
+end
+
+local newroot = character.LowerTorso.Root:Clone()
+hrp.Parent = workspace
+character.PrimaryPart = hrp
+character:MoveTo(Vector3.new(old.X,9e9,old.Z))
+hrp.Parent = character
+task.wait(0.5)
+newroot.Parent = hrp
+hrp.CFrame = old
+		end,
+})
+    
+local Tab = Window:CreateTab("Credits", 4483362458) -- Title, Image
+local Label = Tab:CreateLabel("Made By LuckyGrenn")
+
+
+for _, v in pairs(Functions) do
+	task.spawn(v)
+end
+
+
